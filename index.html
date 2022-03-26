@@ -30,8 +30,19 @@
           <!-- SLIDES MINIATURE ON THE RIGHT -->
           <div class="thumbs">
             <!-- buttons -->
-            <div class="prev" @click="showPrevSlide"></div>
-            <div class="next" @click="showNextSlide"></div>
+            <!-- v-show: when the index is 0 don't show the button -->
+            <div
+              class="prev"
+              v-show="activeSlideIndex>0"
+              @click="showPrevSlide"
+            ></div>
+            <!-- v-show: when the index is 4 don't show the button -->
+
+            <div
+              v-show="activeSlideIndex < slides.length-1"
+              class="next"
+              @click="showNextSlide"
+            ></div>
             <!-- / buttons  -->
 
             <!-- thumbs -->
