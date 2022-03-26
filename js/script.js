@@ -11,25 +11,6 @@ Bonus:
 
 */
 
-/****** VUE JS ********/
-
-//make connection with VUE
-
-const app = new Vue({
-  //first elements to bind
-  el: "#app",
-
-  //take the elements we need so the slides
-  data: {
-    //the array of objects
-    slides,
-    //we need to know when one slide is active so we gonna get the index
-    activeSlideIndex: 0,
-  },
-});
-
-/******* /VUE JS **********/
-
 /********* CODE MAIN ********/
 
 console.log("JS START");
@@ -65,3 +46,22 @@ const slides = [
 ];
 
 /********* CODE MAIN ********/
+
+/****** VUE JS ********/
+
+//make connection with VUE
+
+const app = new Vue({
+  //first elements to bind
+  el: "#app",
+
+  //take the elements we need so the slides
+  data: {
+    //the array of objects
+    slides,
+    //we need to know when one slide is active so we gonna get the index
+    activeSlideIndex: 0,
+  },
+});
+
+/******* /VUE JS **********/
