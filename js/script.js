@@ -61,6 +61,7 @@ const app = new Vue({
     slides,
 
     //we need to know when one slide is active so we gonna get the index
+    // that at first we set to 0
     activeSlideIndex: 0,
   },
   methods: {
@@ -80,6 +81,21 @@ const app = new Vue({
       } else {
         this.activeSlideIndex = 0;
       }
+    },
+    //
+    checkIfActive(item) {
+      const index = this.slides.findIndex(
+        //function anonymous that take as argument an slide
+        //findIndex take an element of the array (slides) and analyzed it
+        //slide is an element of the array
+        (slide) => {
+          //we check by title the index of the currently active slide
+
+          return slide.title === item.title;
+        }
+      );
+      //in the thumb where we have set the activeSlideIndex we gonna put the class "thumb active" and in the others only "thumb"
+      return index === this.activeSlideIndex ? "thumb active" : "thumb";
     },
   },
 });
