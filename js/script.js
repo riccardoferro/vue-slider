@@ -97,6 +97,18 @@ const app = new Vue({
       //in the thumb where we have set the activeSlideIndex we gonna put the class "thumb active" and in the others only "thumb"
       return index === this.activeSlideIndex ? "thumb active" : "thumb";
     },
+    setActive(item) {
+      this.activeSlideIndex = this.slides.findIndex(
+        //function anonymous that take as argument an slide
+        //findIndex take an element of the array (slides) and analyzed it
+        //slide is an element of the array
+        (slide) => {
+          //we check by title the index of the currently active slide
+
+          return slide.title === item.title;
+        }
+      );
+    },
   },
 });
 
