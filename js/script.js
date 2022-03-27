@@ -11,10 +11,13 @@ Bonus:
 
 */
 
+/******** FUNCTIONS  ********/
+
+/******** FUNCTIONS  ********/
+
 /********* CODE MAIN ********/
 
 console.log("JS START");
-
 //array the represents the single objects of the thumbs or of one slide
 
 const slides = [
@@ -63,6 +66,8 @@ const app = new Vue({
     //we need to know when one slide is active so we gonna get the index
     // that at first we set to 0
     activeSlideIndex: 0,
+
+    control: true,
   },
   methods: {
     //show the previous slide
@@ -82,7 +87,7 @@ const app = new Vue({
         this.activeSlideIndex = 0;
       }
     },
-    //
+    //check which slide is active
     checkIfActive(item) {
       const index = this.slides.findIndex(
         //function anonymous that take as argument an slide
@@ -97,6 +102,7 @@ const app = new Vue({
       //in the thumb where we have set the activeSlideIndex we gonna put the class "thumb active" and in the others only "thumb"
       return index === this.activeSlideIndex ? "thumb active" : "thumb";
     },
+    //set active a slide by click
     setActive(item) {
       this.activeSlideIndex = this.slides.findIndex(
         //function anonymous that take as argument an slide
@@ -108,6 +114,25 @@ const app = new Vue({
           return slide.title === item.title;
         }
       );
+    },
+    autoPlay() {
+      const timer = setInterval(this.increment, 3000);
+    },
+    increment() {
+      if (this.control) {
+        if (this.activeSlideIndex === 4) {
+          this.activeSlideIndex = 0;
+        } else {
+          console.log("incremento");
+          this.activeSlideIndex++;
+        }
+      }
+    },
+    blockAutoplay() {
+      this.control = false;
+    },
+    restartAutoplay() {
+      this.control = true;
     },
   },
 });

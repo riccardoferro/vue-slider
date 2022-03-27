@@ -12,9 +12,14 @@
     <title>Slider</title>
   </head>
   <body>
-    <div id="app">
+    <div id="app" @click="autoPlay">
       <div class="container">
-        <div class="slider-wrapper" tabindex="0">
+        <div
+          class="slider-wrapper"
+          tabindex="0"
+          @mouseover="blockAutoplay"
+          @mouseout="restartAutoplay"
+        >
           <!-- DETAIL SLIDE -->
           <div class="item">
             <img
