@@ -59,18 +59,26 @@ const app = new Vue({
   data: {
     //the array of objects
     slides,
+
     //we need to know when one slide is active so we gonna get the index
     activeSlideIndex: 0,
   },
   methods: {
+    //show the previous slide
     showPrevSlide() {
       if (this.activeSlideIndex > 0) {
         this.activeSlideIndex--;
+      } else {
+        this.activeSlideIndex = this.slides.length - 1;
       }
     },
+
+    //show the next slide
     showNextSlide() {
       if (this.activeSlideIndex < this.slides.length - 1) {
         this.activeSlideIndex++;
+      } else {
+        this.activeSlideIndex = 0;
       }
     },
   },
