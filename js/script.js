@@ -67,8 +67,10 @@ const app = new Vue({
     // that at first we set to 0
     activeSlideIndex: 0,
 
+    //make a var for a control of the autoplay
     control: true,
   },
+
   methods: {
     //show the previous slide
     showPrevSlide() {
@@ -87,6 +89,7 @@ const app = new Vue({
         this.activeSlideIndex = 0;
       }
     },
+
     //check which slide is active
     checkIfActive(item) {
       const index = this.slides.findIndex(
@@ -102,6 +105,7 @@ const app = new Vue({
       //in the thumb where we have set the activeSlideIndex we gonna put the class "thumb active" and in the others only "thumb"
       return index === this.activeSlideIndex ? "thumb active" : "thumb";
     },
+
     //set active a slide by click
     setActive(item) {
       this.activeSlideIndex = this.slides.findIndex(
@@ -115,6 +119,7 @@ const app = new Vue({
         }
       );
     },
+
     //set an interval about 3s where the image change automatically
     autoPlay() {
       const timer = setInterval(this.increment, 3000);
