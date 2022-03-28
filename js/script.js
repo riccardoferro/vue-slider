@@ -115,9 +115,12 @@ const app = new Vue({
         }
       );
     },
+    //set an interval about 3s where the image change automatically
     autoPlay() {
       const timer = setInterval(this.increment, 3000);
     },
+
+    //change the index of activeSlideIndex
     increment() {
       if (this.control) {
         if (this.activeSlideIndex === 4) {
@@ -128,9 +131,12 @@ const app = new Vue({
         }
       }
     },
+
+    //block autoplay
     blockAutoplay() {
       this.control = false;
     },
+    //restart autoplay
     restartAutoplay() {
       this.control = true;
     },
